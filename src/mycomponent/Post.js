@@ -17,7 +17,6 @@ export default class Post extends Component {
     onClickHandler = () =>{
         axios.post('http://ss.rabbil.com/test.php',this.state.postData).then(response=>{
             this.setState({postResult : response.data})
-            alert(this.state.postResult)
         }).catch(error=>{
             alert('Something went wrong')
         })
@@ -26,6 +25,7 @@ export default class Post extends Component {
     render() {
         return (
             <div>
+                <p>{this.state.postResult}</p>
                 <input onChange={this.onChangeHandler} type='text'/>
                 <button onClick={this.onClickHandler}>Submit</button>
             </div>
