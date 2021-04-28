@@ -1,0 +1,17 @@
+.itemContainer {
+  display: flex;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.btnContainer {
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  color: white;
+  background-color: #1d4ed8;
+  border: none;
+  padding: 0.5rem 1rem;
+}
