@@ -27,6 +27,15 @@ function NoteApp() {
     setNotes([data, ...notes]);
   };
 
+  const del = (index) =>{
+    setNotes([...notes.slice(0,index), ...notes.slice(index+1)]);
+    setData({title:"",description:""});
+  }
+
+  const edit = (index) =>{
+    setData({title:notes[index].title,description:notes[index].description});
+  }
+
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
@@ -43,7 +52,7 @@ function NoteApp() {
         ></textarea>
         <button>Add Note</button>
       </form>
-      <NoteList list={notes}/>
+      <NoteList list={notes} del={del} edit={edit}/>
     </div>
   );
 }

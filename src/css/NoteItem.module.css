@@ -1,5 +1,7 @@
 .itemContainer {
   display: flex;
+  background: yellow;
+  margin: 1rem;
 }
 .container {
   display: flex;
@@ -14,4 +16,9 @@
   background-color: #1d4ed8;
   border: none;
   padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+.imgSize {
+  height: 100px;
+  width: 100px;
 }

@@ -1,14 +1,15 @@
-import React from 'react'
-import NoteItem from './NoteItem'
+import React from 'react';
+import styles from "../css/NoteList.module.css";
+import NoteItem from './NoteItem';
 
-function NoteList({list}) {
+function NoteList({list,del,edit}) {
 
     return (
         <div>
-            <ul>
+            <ul className={styles.nonPadding}>
                 {
-                    list.map(item =>{
-                        return <NoteItem key={item.title} item={item}/>
+                    list.map((item,index) =>{
+                        return <NoteItem key={item.title} item={item} del={del} id={index} edit={edit}/>
                     })
 
                 }
