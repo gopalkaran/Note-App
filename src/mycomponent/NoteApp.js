@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NoteList from "./NoteList";
 
 function NoteApp() {
+  const [id, setId] = useState(0);
   const [data, setData] = useState({
     title: "",
     description: "",
@@ -17,15 +18,26 @@ function NoteApp() {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (data.title === "" || data.description === "") {
-      return;
+      alert("You must fill title and description")
+      return
     }
-    add(data);
-    setData({ title: "", description: "" });
-  };
+    if(notes.find(isExists)){
+      alert("Title already exists")
+      return
+    }
 
-  const add = (data) => {
-    setNotes([data, ...notes]);
-  };
+    add({id:id, data:data});
+    setData({ title: "", description: "" });
+    setId(id => id + 1)
+  }
+
+  const isExists = (note) =>{
+    return note.data.title === data.title;
+  }
+
+  const add = (note) => {
+    setNotes([note, ...notes]);
+  }
 
   const del = (index) =>{
     setNotes([...notes.slice(0,index), ...notes.slice(index+1)]);
@@ -33,7 +45,7 @@ function NoteApp() {
   }
 
   const edit = (index) =>{
-    setData({title:notes[index].title,description:notes[index].description});
+    setData({title:notes[index].data.title,description:notes[index].data.description})
   }
 
   return (

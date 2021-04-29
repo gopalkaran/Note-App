@@ -9,7 +9,7 @@ function NoteList({list,del,edit}) {
             <ul className={styles.nonPadding}>
                 {
                     list.map((item,index) =>{
-                        return <NoteItem key={item.title} item={item} del={del} id={index} edit={edit}/>
+                        return <NoteItem key={item.id} item={item.data} del={del} id={index} edit={edit}/>
                     })
 
                 }
