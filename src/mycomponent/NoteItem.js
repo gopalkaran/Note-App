@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../css/NoteItem.module.css";
 import logo from "../resource/note-big.svg";
 
-function NoteItem({ item , del, i, edit , id}) {
+function NoteItem({ item , del, i, edit , id, view}) {
   return (
     <div className={styles.itemContainer}>
       <img src={logo} alt="note_icon" className={styles.imgSize} />
@@ -12,7 +12,7 @@ function NoteItem({ item , del, i, edit , id}) {
         <div className={styles.btnContainer}>
         <button className={styles.btn} onClick={()=>edit(id)}>Edit</button>
         <button className={styles.btn} onClick={()=>del(i)}>Delete</button>
-        <button className={styles.btn}>View</button>
+        <button className={styles.btn} onClick={()=>view(item)}>View</button>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NoteList from "./NoteList";
+import ViewNote from "./ViewNote";
 
 function NoteApp() {
   const [id, setId] = useState(1);
@@ -9,6 +10,7 @@ function NoteApp() {
   });
   const [notes, setNotes] = useState([]);
   const [editId, setEditId] = useState(0);
+  const [show, setShow] = useState({});
 
   const onchangeHandler = (name) => {
     return ({ target: { value } }) => {
@@ -34,6 +36,8 @@ function NoteApp() {
             : note;
         })
       );
+      setData({ title: "", description: "" });
+      setEditId(0);
       return;
     }
 
@@ -63,6 +67,10 @@ function NoteApp() {
     setEditId(id);
   };
 
+  const view = (item) => {
+    setShow(item)
+  };
+
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
@@ -79,7 +87,10 @@ function NoteApp() {
         ></textarea>
         <button>Add Note</button>
       </form>
-      <NoteList list={notes} del={del} edit={edit} />
+      <NoteList list={notes} del={del} edit={edit} view={view} />
+      
+      <ViewNote note={show} />
+      
     </div>
   );
 }
