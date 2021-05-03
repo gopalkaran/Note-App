@@ -1,22 +1,38 @@
 .itemContainer {
   display: flex;
-  background: yellow;
-  margin: 1rem;
+  margin: 1rem auto;
+  width: 60%;
+  max-width: 500px;
+  padding: 10px;
+  border: #4338ca solid 1px;
+  justify-content: space-between;
+  align-items: center;
 }
 .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.container h3,
+p {
+  margin-top: 0;
 }
 .btnContainer {
   display: flex;
-  gap: 10px;
+  gap: 2px;
+  flex-wrap: wrap;
 }
 .btn {
-  color: white;
-  background-color: #1d4ed8;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 2.5rem;
+  cursor: pointer;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  background: #4338ca;
+  color: #fff;
+  font-size: medium;
+  border-radius: 20px;
 }
 .imgSize {
   height: 100px;

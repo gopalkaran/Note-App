@@ -8,7 +8,7 @@ function NoteItem({ item , del, i, edit , id, view, unhide}) {
       <img src={logo} alt="note_icon" className={styles.imgSize} />
       <div className={styles.container}>
         <h3>{item.title}</h3>
-        <small>{item.description}</small>
+        <p>{item.description}</p>
         <div className={styles.btnContainer}>
         <button className={styles.btn} onClick={()=>edit(id)}>Edit</button>
         <button className={styles.btn} onClick={()=>del(i)}>Delete</button>

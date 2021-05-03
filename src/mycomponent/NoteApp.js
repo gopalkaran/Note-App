@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../css/NoteApp.module.css';
 import NoteList from "./NoteList";
 import ViewNote from "./ViewNote";
 
@@ -80,6 +81,11 @@ function NoteApp() {
     setVisibility(true);
   };
 
+  const searchHandler = ({target : {value}}) => {
+    const searchText = value.toLowerCase();
+    console.log(searchText)
+  }
+
   return (
     <div>
       <form onSubmit={onSubmitHandler}>
@@ -94,8 +100,9 @@ function NoteApp() {
           value={data.description}
           onChange={onchangeHandler("description")}
         ></textarea>
-        <button>Add Note</button>
+        <button className={styles.button}>Add Note</button>
       </form>
+      <input type="search" className={styles.searchbar} placeholder="Search Notes by Title" onChange={searchHandler}/>
       <NoteList list={notes} del={del} edit={edit} view={view} unhide={unhide}/>
       <ViewNote note={show} visibility={visibility} hide={hide}/>
     </div>
