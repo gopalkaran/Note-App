@@ -11,6 +11,7 @@ function NoteApp() {
   const [notes, setNotes] = useState([]);
   const [editId, setEditId] = useState(0);
   const [show, setShow] = useState({});
+  const [visibility, setVisibility] = useState(false);
 
   const onchangeHandler = (name) => {
     return ({ target: { value } }) => {
@@ -68,7 +69,15 @@ function NoteApp() {
   };
 
   const view = (item) => {
-    setShow(item)
+    setShow(item);
+  };
+
+  const hide = () => {
+    setVisibility(false);
+  };
+
+  const unhide = () => {
+    setVisibility(true);
   };
 
   return (
@@ -87,10 +96,8 @@ function NoteApp() {
         ></textarea>
         <button>Add Note</button>
       </form>
-      <NoteList list={notes} del={del} edit={edit} view={view} />
-      
-      <ViewNote note={show} />
-      
+      <NoteList list={notes} del={del} edit={edit} view={view} unhide={unhide}/>
+      <ViewNote note={show} visibility={visibility} hide={hide}/>
     </div>
   );
 }
