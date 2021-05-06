@@ -4,15 +4,15 @@ import NoteList from "./NoteList";
 import ViewNote from "./ViewNote";
 
 function NoteApp() {
-  const [id, setId] = useState(1);
-  const [data, setData] = useState({
+  const [id, setId] = useState(1); // counter for generating id
+  const [data, setData] = useState({ // state for maintaining controlled input
     title: "",
     description: "",
   });
-  const [notes, setNotes] = useState([]);
-  const [editId, setEditId] = useState(0);
-  const [show, setShow] = useState({});
-  const [visibility, setVisibility] = useState(false);
+  const [notes, setNotes] = useState([]); // state for storing note with unique id and visible flag
+  const [editId, setEditId] = useState(0); // state to identify which note should be edited
+  const [show, setShow] = useState({}); // state to hold particular note to display using modal
+  const [visibility, setVisibility] = useState(false); // state to maintain visibility of modal
 
   const onchangeHandler = (name) => {
     return ({ target: { value } }) => {
@@ -43,7 +43,7 @@ function NoteApp() {
       return;
     }
 
-    add({ id: id, data: data });
+    add({ id: id, data: data , visible : true});
     setData({ title: "", description: "" });
     setId((id) => id + 1);
   };
@@ -83,7 +83,13 @@ function NoteApp() {
 
   const searchHandler = ({target : {value}}) => {
     const searchText = value.toLowerCase();
-    console.log(searchText)
+    const updatedList = notes.map(note => {
+      const title = note.data.title.toLowerCase();
+      const flag = title.includes(searchText);
+      return {...note, visible : flag};
+    })
+    console.log(updatedList);
+    setNotes(updatedList);
   }
 
   return (

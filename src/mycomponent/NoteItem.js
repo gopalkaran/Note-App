@@ -2,9 +2,10 @@ import React from "react";
 import styles from "../css/NoteItem.module.css";
 import logo from "../resource/note-big.svg";
 
-function NoteItem({ item , del, i, edit , id, view, unhide}) {
+function NoteItem({ item , del, i, edit , id, view, unhide, visible}) {
+  const vis = visible ? styles.itemContainer : styles.hide ;
   return (
-    <div className={styles.itemContainer}>
+    <div className={`${vis}`}>
       <img src={logo} alt="note_icon" className={styles.imgSize} />
       <div className={styles.container}>
         <h3>{item.title}</h3>
