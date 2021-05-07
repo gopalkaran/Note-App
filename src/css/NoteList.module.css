@@ -1,4 +1,22 @@
+.container {
+  margin: auto;
+  width: 80%;
+}
 .nonPadding {
   padding-left: 0;
-  margin: 10px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-auto-rows: minmax(250px, auto);
+  grid-gap: 1em;
+  justify-content: center;
+}
+
+.wrapper > div:nth-child(odd) {
+  background-color: #8b5cf6;
+}
+
+.wrapper > div:nth-child(even) {
+  background-color: #ec4899;
 }
