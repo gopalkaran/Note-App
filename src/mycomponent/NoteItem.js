@@ -3,6 +3,7 @@ import styles from "../css/NoteItem.module.css";
 import logo2 from "../resource/delete_black_24dp.svg";
 import logo1 from "../resource/edit_black_24dp.svg";
 import logo3 from "../resource/visibility_black_24dp.svg";
+import LimitText from "./LimitText";
 
 function NoteItem({ item, del, i, edit, id, view, unhide, visible }) {
   const vis = visible ? styles.container : styles.hide;
@@ -15,7 +16,7 @@ function NoteItem({ item, del, i, edit, id, view, unhide, visible }) {
             unhide();
           }}/>
       <h2>{item.title}</h2>
-      <div>{item.description}</div>
+      <LimitText text={item.description}  maxlength={100}/>
     </div>
   );
 }
