@@ -10,7 +10,7 @@ function NoteItem({ item, del, i, edit, id, view, unhide, visible }) {
   return (
     <div className={`${vis}`}>
           <img className={styles.edit} src={logo1} alt="edit" onClick={() => edit(id)}/>
-          <img className={styles.delete} src={logo2} alt="delete" onClick={() => del(i)}/>
+          <img className={styles.delete} src={logo2} alt="delete" onClick={() => del(id)}/>
           <img className={styles.view} src={logo3} alt="view" onClick={() => {
             view(item);
             unhide();
